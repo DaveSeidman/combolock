@@ -72,8 +72,8 @@ function App(){
     <div className="dialWrap" onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
       <div className="dial" style={{transform:`rotate(${dial*DEG}deg)`}}>
        {Array.from({length:TICKS},(_,i)=><div key={i} className={'tick '+(i%5===0?'major':'')} style={{transform:`rotate(${-i*DEG}deg)`}}><i/>{i%5===0&&<b>{i}</b>}</div>)}
-       <div className="hub"><RotateCw size={27}/></div>
       </div>
+      <div className="hub"><RotateCw size={27} style={{transform:`rotate(${dial*DEG}deg)`}}/></div>
     </div>
     <div className="readout">{display.toString().padStart(2,'0')}</div><div className="status">{status}</div>
     <p className="hint">Hold your phone flat, screen facing up.<br/>Turn it clockwise or counterclockwise like a dial.<br/>Desktop: drag the dial.</p>
